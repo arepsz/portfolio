@@ -16,42 +16,43 @@ const routes = [
         label: "Home",
         icon: LayoutDashboard,
         href: "#home",
-        color: "text-sky-500"
+        color: "text-zinc-400"
     },
     {
         label: "About me",
         icon: User2,
         href: "#about",
-        color: "text-pink-700"
+        color: "text-rose-500"
     },
     {
         label: "My skills",
         icon: AlignLeft,
         href: "#skills",
-        color: "text-violet-500"
+        color: "text-blue-600"
     },
     {
         label: "My work",
         icon: Briefcase,
         href: "#work",
-        color: "text-emerald-500"
+        color: "text-cyan-300"
     },
     {
         label: "Contact me",
         icon: MessageSquare,
         href: "#contact",
-        color: "text-yellow-700"
+        color: "text-orange-500"
     }
 ]
 
 export const Sidebar = () => {
     const pathname = usePathname();
     const [isMounted, setIsMounted] = useState(false);
+
     return (
         <div className="space-y-4 py-4 flex flex-col
         h-full bg-[#19191a] text-white">
             <div className="px-3 py-2 flex-1">
-                <Link href="/dashboard" className="flex 
+                <Link href="#home" className="flex 
                 items-center pl-3 mb-14">
                     <div className="relative w-16 h-16 mr-4">
                         <Image 
