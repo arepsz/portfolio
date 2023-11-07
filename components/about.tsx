@@ -25,7 +25,7 @@ const content = [
 
 export const About = () => {
     return (
-        <div className="px-10 mb-8 flex flex-col justify-center items-center h-screen">
+        <div className="px-10 mb-8 flex flex-col justify-center items-center">
             <h2 className="text-center text-5xl md:text-7xl text-white font-extrabold mb-2">
                 About me
             </h2>
