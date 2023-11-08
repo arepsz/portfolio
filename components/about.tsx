@@ -25,7 +25,7 @@ const content = [
 
 export const About = () => {
     return (
-        <div className="px-10 mb-8 flex flex-col justify-center items-center md:h-screen" id="about">
+        <div className="pb-20 md:pb-0 px-10 mb-8 flex flex-col justify-center items-center md:h-screen" id="about">
             <h2 className="text-center text-5xl md:text-7xl text-white font-extrabold mb-2">
                 About me
             </h2>

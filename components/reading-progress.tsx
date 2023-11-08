@@ -29,5 +29,5 @@ export const ReadingProgress = () => {
         }
     }, [])
 
-    return completion
+    return <span style={{transform: `translateY(${completion-103}%)`}} className="md:ml-72 absolute bg-gradient-to-b from-green-400 to-blue-600 w-1 h-full left-0"></span>
 }
