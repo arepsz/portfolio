@@ -25,7 +25,7 @@ const content = [
 
 export const About = () => {
     return (
-        <div className="pb-20 md:pb-0 px-10 mb-8 flex flex-col justify-center items-center md:h-screen" id="about">
+        <div className="pb-20 xl:pb-0 px-10 mb-8 flex flex-col justify-center items-center lg:h-screen" id="about">
             <h2 className="text-center text-5xl md:text-7xl text-white font-extrabold mb-2">
                 About me
             </h2>
@@ -33,7 +33,7 @@ export const About = () => {
             text-small md:text-lg text-center">
                 Here you can find some information about me
             </p>
-            <div className="w-10/12 md:w-3/5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1
+            <div className="w-10/12 xl:w-3/5 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1
             lg:grid-cols-2 gap-4">
                 {content.map((item) =>(
                     <Card key={item.description} className="bg-[#595959] border-none text-white">

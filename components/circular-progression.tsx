@@ -1,7 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { CircularProgressbar } from "react-circular-progressbar";
-import "react-circular-progressbar/dist/styles.css";
-import { CircularProgressbarProps } from "react-circular-progressbar/dist/types";
+import { CircularProgressBar } from "./circular-bar";
 
 interface CircularProgressionProps {
     serviceTab: {
@@ -16,7 +14,7 @@ export const CircularProgression = ({
     index 
 }: CircularProgressionProps) => {
     // State to manage the progress bar percentage
-    const [percentages, setPercentages] = useState([0, 0, 0, 0]);
+    const [percentages, setPercentages] = useState(new Array(serviceTab.length).fill(0));
     
     // Ref for the container element
     const containerRef = useRef(null);
@@ -52,12 +50,13 @@ export const CircularProgression = ({
     }, [percentages, serviceTab]);
 
     return (
-        <div ref={containerRef} className="m-10">
+        <div ref={containerRef}>
           {" "}
-          <CircularProgressbar
+          <CircularProgressBar 
             value={percentages[index]}
-            text={`${percentages[index]}%`}
+            width={200}
           />
+          
         </div>
       );
 }

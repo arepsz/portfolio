@@ -18,7 +18,7 @@ export default function Home() {
           text-small md:text-lg text-center">
             full-stack web developer
           </p>
-          <div className="flex items-center justify-center w-72 absolute top-[30%] sm:top-[38%] md:top-[38%] lg:top-[38%]">
+          <div className="flex items-center justify-center w-72 absolute top-[20%] sm:top-[25%] md:top-[25%] lg:top-[25%]">
             <div className="w-14 h-14 rounded-full border-2 border-black animate-bounce before:content-[''] before:absolute before:top-3 before:left-4 before:w-5 before:h-5
             before:border-b-2 before:border-l-2 before:border-black before:-rotate-45"></div>
           </div>

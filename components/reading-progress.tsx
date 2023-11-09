@@ -7,19 +7,14 @@ export const ReadingProgress = () => {
 
     useEffect(() => {
         const updateScrollCompletion = () => {
-            let scrollProgress: number = window.scrollY
-            let scrollHeight: number = Math.max(
-                document.body.scrollHeight,
-                document.documentElement.scrollHeight,
-                document.body.offsetHeight,
-                document.documentElement.offsetHeight,
-                document.body.clientHeight,
-                document.documentElement.clientHeight) - window.innerHeight
-            if(scrollHeight){
-                setCompletion(
-                    parseFloat((scrollProgress / scrollHeight).toFixed(2)) * 100
-                )
-            }
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollY = window.scrollY;
+            
+            console.log((scrollY / (documentHeight - windowHeight))*100.02)
+            setCompletion(
+                (scrollY / (documentHeight - windowHeight))*100
+            )
 
         }
         window.addEventListener('scroll', updateScrollCompletion)
@@ -29,5 +24,5 @@ export const ReadingProgress = () => {
         }
     }, [])
 
-    return <span style={{transform: `translateY(${completion-103}%)`}} className="md:ml-72 absolute bg-gradient-to-b from-green-400 to-blue-600 w-1 h-full left-0"></span>
+    return <span style={{transform: `translateY(${completion-101.6}%)`}} className="lg:ml-72 absolute bg-gradient-to-b from-green-400 to-blue-600 w-1 h-full left-0"></span>
 }

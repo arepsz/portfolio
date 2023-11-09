@@ -2,14 +2,9 @@
 
 import { cn } from "@/lib/utils";
 import { AlignLeft, Briefcase, LayoutDashboard, MessageSquare, User2 } from "lucide-react";
-import { Montserrat } from "next/font/google"
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
 import Image from "next/image";
-
-const monsterrat = Montserrat({weight: "600", subsets:
-["latin"]})
 
 const routes = [
     {
@@ -46,7 +41,6 @@ const routes = [
 
 export const Sidebar = () => {
     const pathname = usePathname();
-    const [isMounted, setIsMounted] = useState(false);
 
     return (
         <div className="space-y-4 py-4 flex flex-col
