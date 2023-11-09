@@ -9,7 +9,7 @@ import { Work } from "@/components/work";
 export default function Home() {
     return (
       <div className="space-y-4 py-4 flex flex-col h-full">
-        <div className='space-y-4 pb-28 h-screen flex flex-col items-center justify-center'>
+        <div className='space-y-4 pb-28 h-screen flex flex-col items-center justify-center' id="home">
           <h2 className="text-5xl md:text-9xl font-bold
           text-center bg-gradient-to-br from-green-400 to-blue-600 bg-clip-text text-transparent">
             Farkas Árpád

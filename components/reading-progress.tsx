@@ -11,7 +11,6 @@ export const ReadingProgress = () => {
             const documentHeight = document.documentElement.scrollHeight;
             const scrollY = window.scrollY;
             
-            console.log((scrollY / (documentHeight - windowHeight))*100.02)
             setCompletion(
                 (scrollY / (documentHeight - windowHeight))*100
             )

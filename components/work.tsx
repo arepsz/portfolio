@@ -1,6 +1,6 @@
 export const Work = () => {
     return (
-        <div>
+        <div id="work">
             Work
         </div>
     )

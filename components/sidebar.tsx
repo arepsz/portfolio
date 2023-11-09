@@ -3,8 +3,8 @@
 import { cn } from "@/lib/utils";
 import { AlignLeft, Briefcase, LayoutDashboard, MessageSquare, User2 } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import Image from "next/image";
+import { useEffect, useLayoutEffect, useState } from "react";
 
 const routes = [
     {
@@ -39,8 +39,52 @@ const routes = [
     }
 ]
 
+const clamp = (value: number) => Math.max(0, value);
+
+const isBetween = (value: number, floor: number, ceil: number) =>
+  value >= floor && value <= ceil;
+
+const useScrollspy = (ids: string[], offset: number = 0) => {
+  const [activeId, setActiveId] = useState("home");
+
+  useLayoutEffect(() => {
+    const listener = () => {
+      const scroll = window.scrollY;
+
+      const position = ids
+        .map((id) => {
+          const element = document.getElementById(id);
+
+          if (!element) return { id, top: -1, bottom: -1 };
+
+          const rect = element.getBoundingClientRect();
+          const top = clamp(rect.top + scroll - offset);
+          const bottom = clamp(rect.bottom + scroll - offset);
+
+          return { id, top, bottom };
+        })
+        .find(({ top, bottom }) => isBetween(scroll, top, bottom));
+
+      setActiveId(position?.id || "");
+    };
+
+    listener();
+
+    window.addEventListener("resize", listener);
+    window.addEventListener("scroll", listener);
+
+    return () => {
+      window.removeEventListener("resize", listener);
+      window.removeEventListener("scroll", listener);
+    };
+  }, [ids, offset]);
+
+  return activeId;
+};
+
 export const Sidebar = () => {
-    const pathname = usePathname();
+    const ids = ["home", "about", "skills", "work", "contact"];
+    const activeId = useScrollspy(ids, 50);
 
     return (
         <div className="space-y-4 py-4 flex flex-col
@@ -69,8 +113,8 @@ export const Sidebar = () => {
                         <Link
                             href={route.href}
                             key={route.href}
-                            className={cn("text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition",
-                            pathname === route.href ? "text-white bg-white/10" : "text-zinc-400")}
+                            className={cn("text-sm group flex p-3 w-full justify-start font-medium cursor-pointer hover:text-white hover:bg-white/10 rounded-lg transition text-zinc-400",
+                            route.href.split('#')[1] === activeId && "text-white bg-white/10")}
                         >
                             <div className="flex items-center flex-1">
                                 <route.icon className={cn("h-5 w-5 mr-3", route.color)}/>

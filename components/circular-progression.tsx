@@ -33,6 +33,9 @@ export const CircularProgression = ({
               });
               setPercentages(updatedPercentages);
             }
+            else {
+              setPercentages(new Array(serviceTab.length).fill(0))
+            }
           });
         },
         { threshold: 0 } // Change the threshold value as per your requirements
